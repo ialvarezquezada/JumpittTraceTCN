@@ -111,7 +111,8 @@ class TcnBluetoothManager(
             Log.i(TAG, "Changing own TCN ...")
             // Remove current TCN from the advertising queue.
             dequeueFromAdvertising(generatedTcn)
-            val tcn = tcnCallback.generateTcn()
+//            val tcn = tcnCallback.generateTcn()
+            val tcn = "pene".toByteArray()
             Log.i(TAG, "Did generate TCN=${Base64.encodeToString(tcn, Base64.NO_WRAP)}")
             generatedTcn = tcn
             // Enqueue new TCN to the head of the advertising queue so it will be advertised next.
