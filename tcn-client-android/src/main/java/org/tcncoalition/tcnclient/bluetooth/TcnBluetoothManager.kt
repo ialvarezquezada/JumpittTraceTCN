@@ -249,7 +249,7 @@ class TcnBluetoothManager(
                 )
                 tcnCallback.onTcnFound(
                     tcn,
-                    generatedTcn,
+                    "generatedTcn",
                     estimatedDistanceToRemoteDeviceAddressMap[it.device.address]
                 )
             }
@@ -282,7 +282,7 @@ class TcnBluetoothManager(
                         Base64.NO_WRAP
                     )} from device=${it.key} at estimated distance=${estimatedDistanceToRemoteDeviceAddressMap[it.key]}"
                 )
-                tcnCallback.onTcnFound(it.value, generatedTcn, estimatedDistanceToRemoteDeviceAddressMap[it.key])
+                tcnCallback.onTcnFound(it.value, "generatedTcn", estimatedDistanceToRemoteDeviceAddressMap[it.key])
             }
         }
     }
@@ -361,7 +361,7 @@ class TcnBluetoothManager(
                             )
                             tcnCallback.onTcnFound(
                                 value,
-                                generatedTcn,
+                                "generatedTcn",
                                 estimatedDistanceToRemoteDeviceAddressMap[device?.address]
                             )
                             // TCNs received through characteristic writes come from iOS apps in the
