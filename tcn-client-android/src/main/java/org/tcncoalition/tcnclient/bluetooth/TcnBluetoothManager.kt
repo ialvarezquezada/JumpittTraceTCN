@@ -249,6 +249,7 @@ class TcnBluetoothManager(
                 )
                 tcnCallback.onTcnFound(
                     tcn,
+                    generatedTcn,
                     estimatedDistanceToRemoteDeviceAddressMap[it.device.address]
                 )
             }
@@ -281,7 +282,7 @@ class TcnBluetoothManager(
                         Base64.NO_WRAP
                     )} from device=${it.key} at estimated distance=${estimatedDistanceToRemoteDeviceAddressMap[it.key]}"
                 )
-                tcnCallback.onTcnFound(it.value, estimatedDistanceToRemoteDeviceAddressMap[it.key])
+                tcnCallback.onTcnFound(it.value, generatedTcn, estimatedDistanceToRemoteDeviceAddressMap[it.key])
             }
         }
     }
@@ -350,7 +351,7 @@ class TcnBluetoothManager(
                                 result = BluetoothGatt.GATT_FAILURE
                                 return
                             }
-
+                            generatedTcn
                             Log.i(
                                 TAG,
                                 "Did find TCN=${Base64.encodeToString(
@@ -360,6 +361,7 @@ class TcnBluetoothManager(
                             )
                             tcnCallback.onTcnFound(
                                 value,
+                                generatedTcn,
                                 estimatedDistanceToRemoteDeviceAddressMap[device?.address]
                             )
                             // TCNs received through characteristic writes come from iOS apps in the
